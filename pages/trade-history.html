@@ -122,6 +122,24 @@
         letter-spacing: normal;
       }
 
+      .page-trade-history .filter-pill select,
+      .page-trade-history .filter-pill input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .page-trade-history .filter-pill select {
+        appearance: none;
+      }
+
       .page-trade-history .filter-button {
         align-self: end;
         border-color: var(--color-action-primary-border);
@@ -129,42 +147,6 @@
         box-shadow: none;
       }
 
-      .page-trade-history .summary-strip {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: var(--gap-inner);
-      }
-
-      .page-trade-history .summary-card {
-        padding: 12px 14px;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--color-border);
-        background: var(--color-surface-panel-strong);
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .page-trade-history .summary-label {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: var(--color-muted);
-      }
-
-      .page-trade-history .summary-value {
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--color-text);
-      }
-
-      .page-trade-history .summary-value.positive {
-        color: var(--color-status-positive);
-      }
-
-      .page-trade-history .summary-value.negative {
-        color: var(--color-status-negative);
-      }
 
       .page-trade-history .table-panel {
         padding: 0;
@@ -311,6 +293,7 @@
         background: var(--color-overlay-xxs);
         color: var(--color-text);
         font-size: 0.75rem;
+        appearance: none;
       }
 
       .page-trade-history .pagination {
@@ -417,48 +400,68 @@
               <div class="filter-bar">
                 <div class="filter-field">
                   <span>Date Range</span>
-                  <div class="filter-pill">Last 7 days</div>
+                  <div class="filter-pill">
+                    <select id="trade-history-date-range">
+                      <option value="7d" selected>Last 7 days</option>
+                      <option value="30d">Last 30 days</option>
+                      <option value="90d">Last 90 days</option>
+                      <option value="all">All time</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="filter-field">
                   <span>Exchange</span>
-                  <div class="filter-pill">Binance, OKX, Bybit</div>
+                  <div class="filter-pill">
+                    <select id="trade-history-exchange">
+                      <option value="all" selected>All exchanges</option>
+                      <option value="Binance">Binance</option>
+                      <option value="OKX">OKX</option>
+                      <option value="Bybit">Bybit</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="filter-field">
                   <span>Market</span>
-                  <div class="filter-pill">Spot / Futures</div>
+                  <div class="filter-pill">
+                    <select id="trade-history-market">
+                      <option value="all" selected>Spot / Futures</option>
+                      <option value="Spot">Spot</option>
+                      <option value="Futures">Futures</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="filter-field">
                   <span>Pair</span>
-                  <div class="filter-pill">BTC/USDT, ETH/USDT</div>
+                  <div class="filter-pill">
+                    <select id="trade-history-pair"></select>
+                  </div>
                 </div>
                 <div class="filter-field">
                   <span>Side</span>
-                  <div class="filter-pill">Buy / Sell · Long / Short</div>
+                  <div class="filter-pill">
+                    <select id="trade-history-side">
+                      <option value="all" selected>Buy / Sell · Long / Short</option>
+                      <option value="Buy">Buy</option>
+                      <option value="Sell">Sell</option>
+                      <option value="Long">Long</option>
+                      <option value="Short">Short</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="filter-field">
                   <span>Status</span>
-                  <div class="filter-pill">Filled · Cancelled · Failed</div>
+                  <div class="filter-pill">
+                    <select id="trade-history-status">
+                      <option value="all" selected>Filled · Cancelled · Failed</option>
+                      <option value="Filled">Filled</option>
+                      <option value="Cancelled">Cancelled</option>
+                      <option value="Failed">Failed</option>
+                    </select>
+                  </div>
                 </div>
-                <button class="button filter-button" type="button">Filters</button>
-              </div>
-            </section>
-
-            <section class="summary-strip">
-              <div class="summary-card">
-                <span class="summary-label">Total Trades</span>
-                <span class="summary-value">542</span>
-              </div>
-              <div class="summary-card">
-                <span class="summary-label">Total Volume</span>
-                <span class="summary-value">445.2 BTC</span>
-              </div>
-              <div class="summary-card">
-                <span class="summary-label">Realized PnL</span>
-                <span class="summary-value positive">+$9,438.25</span>
-              </div>
-              <div class="summary-card">
-                <span class="summary-label">Win Rate</span>
-                <span class="summary-value">74.9%</span>
+                <button class="button filter-button" type="button" id="trade-history-filters-reset">
+                  Filters
+                </button>
               </div>
             </section>
 
@@ -482,205 +485,19 @@
                       <th>Account</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:16:56
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">B</span>
-                          Binance
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill positive">Buy Long</span></td>
-                      <td class="numeric">67,005.1</td>
-                      <td class="numeric">0.250</td>
-                      <td class="numeric">$276.97</td>
-                      <td class="numeric">0.10 USDT</td>
-                      <td class="numeric"><span class="trade-pill positive">+$26.70</span></td>
-                      <td><span class="status-pill status-pill--filled">Filled</span></td>
-                      <td class="wrap">GridBot 2.0</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:14:02
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">O</span>
-                          OKX
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill">Open Long</span></td>
-                      <td class="numeric">67,053.0</td>
-                      <td class="numeric">0.258</td>
-                      <td class="numeric">$275.57</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill positive">+$18.42</span></td>
-                      <td><span class="status-pill status-pill--filled">Filled</span></td>
-                      <td class="wrap">PingPong Alpha</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:12:18
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">Y</span>
-                          Bybit
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill">Close Short</span></td>
-                      <td class="numeric">67,014.6</td>
-                      <td class="numeric">0.253</td>
-                      <td class="numeric">$270.88</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill positive">+$12.44</span></td>
-                      <td><span class="status-pill status-pill--filled">Filled</span></td>
-                      <td class="wrap">GridBot 2.0</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:11:06
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">O</span>
-                          OKX
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill">Open Long</span></td>
-                      <td class="numeric">67,055.1</td>
-                      <td class="numeric">0.200</td>
-                      <td class="numeric">$270.83</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill positive">+$10.92</span></td>
-                      <td><span class="status-pill status-pill--filled">Filled</span></td>
-                      <td class="wrap">PingPong Alpha</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:09:48
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">Y</span>
-                          Bybit
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill negative">Sell Short</span></td>
-                      <td class="numeric">67,014.6</td>
-                      <td class="numeric">0.253</td>
-                      <td class="numeric">$278.00</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill negative">-$6.88</span></td>
-                      <td><span class="status-pill status-pill--filled">Filled</span></td>
-                      <td class="wrap">GridBot 2.0</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:08:30
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">B</span>
-                          Binance
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill">Open Long</span></td>
-                      <td class="numeric">67,055.1</td>
-                      <td class="numeric">0.253</td>
-                      <td class="numeric">$270.89</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill positive">+$8.31</span></td>
-                      <td><span class="status-pill status-pill--filled">Filled</span></td>
-                      <td class="wrap">GridBot 2.0</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:07:02
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">O</span>
-                          OKX
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill negative">Open Short</span></td>
-                      <td class="numeric">67,030.3</td>
-                      <td class="numeric">0.253</td>
-                      <td class="numeric">$269.11</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill negative">-$11.02</span></td>
-                      <td><span class="status-pill status-pill--cancelled">Cancelled</span></td>
-                      <td class="wrap">Scalper Plan</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>29/04/2026</strong><br />
-                        12:05:44
-                      </td>
-                      <td>
-                        <div class="exchange">
-                          <span class="exchange-icon">Y</span>
-                          Bybit
-                        </div>
-                      </td>
-                      <td><span class="trade-pill">Futures</span></td>
-                      <td><strong>BTCUSDT</strong></td>
-                      <td><span class="trade-pill">Close Long</span></td>
-                      <td class="numeric">67,014.6</td>
-                      <td class="numeric">0.248</td>
-                      <td class="numeric">$268.21</td>
-                      <td class="numeric">0.07 USDT</td>
-                      <td class="numeric"><span class="trade-pill negative">-$15.88</span></td>
-                      <td><span class="status-pill status-pill--failed">Failed</span></td>
-                      <td class="wrap">GridBot 2.0</td>
-                      <td class="wrap">Main Account <span class="row-hint">▾</span></td>
-                    </tr>
-                  </tbody>
+                  <tbody data-trade-history-rows></tbody>
                 </table>
               </div>
               <div class="table-footer">
                 <div class="rows-select">
                   <span>Rows per page</span>
-                  <button class="rows-pill" type="button">10 ▾</button>
+                  <select class="rows-pill" id="trade-history-rows">
+                    <option value="10" selected>10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
                 </div>
-                <div class="pagination" aria-label="Pagination">
-                  <button class="page-button is-active" type="button">1</button>
-                  <button class="page-button" type="button">2</button>
-                  <button class="page-button" type="button">3</button>
-                  <button class="page-button" type="button">4</button>
-                </div>
+                <div class="pagination" aria-label="Pagination" data-trade-history-pagination></div>
               </div>
             </section>
           </div>
@@ -688,5 +505,6 @@
       </div>
     </div>
     <script type="module" src="../src/scripts/main.js"></script>
+    <script type="module" src="../src/scripts/pages/tradeHistoryPage.js"></script>
   </body>
 </html>
