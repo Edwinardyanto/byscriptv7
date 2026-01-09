@@ -101,6 +101,15 @@
   --color-component-alert-bg: var(--color-surface-panel);
   --color-component-status-pill-bg: var(--color-state-selected);
   --color-component-status-pill-border: var(--color-border-default);
+  --color-component-dropdown-bg: var(--color-surface-panel-strong);
+  --color-component-dropdown-border: var(--color-border-default);
+  --color-component-dropdown-text: var(--color-text-secondary);
+  --color-component-dropdown-hover-bg: var(--color-state-hover);
+  --color-component-dropdown-hover-text: var(--color-text-primary);
+  --color-component-dropdown-selected-bg: var(--color-state-selected);
+  --color-component-dropdown-selected-text: var(--color-text-primary);
+  --color-component-dropdown-disabled-text: var(--color-text-disabled);
+  --color-component-dropdown-divider: var(--color-divider-subtle);
 
   /* Legacy token mapping */
   --color-bg-primary: var(--color-app-background);

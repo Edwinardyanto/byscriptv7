@@ -53,6 +53,30 @@ body {
   line-height: 1.5;
 }
 
+select {
+  background-color: var(--color-component-dropdown-bg);
+  border-color: var(--color-component-dropdown-border);
+  color: var(--color-component-dropdown-text);
+}
+
+select option,
+select optgroup {
+  background-color: var(--color-component-dropdown-bg);
+  color: var(--color-component-dropdown-text);
+}
+
+select option:checked,
+select option:focus,
+select option:hover {
+  background-color: var(--color-component-dropdown-selected-bg);
+  color: var(--color-component-dropdown-selected-text);
+}
+
+select option:disabled,
+select optgroup:disabled {
+  color: var(--color-component-dropdown-disabled-text);
+}
+
 .text-dense {
   line-height: 1.2;
 }

@@ -109,9 +109,9 @@
       .page-autotrader-config .selector-trigger {
         width: 100%;
         border-radius: var(--radius-md);
-        border: 1px solid var(--color-overlay-lg);
-        background: var(--color-overlay-xxs-strong);
-        color: var(--color-text-primary);
+        border: 1px solid var(--color-component-dropdown-border);
+        background: var(--color-component-dropdown-bg);
+        color: var(--color-component-dropdown-text);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -122,12 +122,12 @@
       }
 
       .page-autotrader-config .selector-trigger:hover {
-        background: var(--color-overlay-sm);
+        background: var(--color-component-dropdown-hover-bg);
       }
 
       .page-autotrader-config .selector-trigger.is-open {
-        border-color: var(--color-overlay-xxxl);
-        background: var(--color-overlay-md);
+        border-color: var(--color-component-dropdown-border);
+        background: var(--color-component-dropdown-selected-bg);
       }
 
       .page-autotrader-config .selector-trigger.is-disabled {
@@ -163,8 +163,8 @@
         top: calc(100% + 10px);
         left: 0;
         right: 0;
-        background: var(--color-surface-panel-strong);
-        border: 1px solid var(--color-overlay-lg);
+        background: var(--color-component-dropdown-bg);
+        border: 1px solid var(--color-component-dropdown-border);
         border-radius: var(--radius-md);
         box-shadow: 0 16px 40px var(--color-shadow-soft);
         padding: 6px 0;
@@ -181,7 +181,7 @@
         width: 100%;
         border: none;
         background: transparent;
-        color: var(--color-text-secondary);
+        color: var(--color-component-dropdown-text);
         display: grid;
         grid-template-columns: 34px minmax(0, 1fr) auto;
         gap: 12px;
@@ -193,14 +193,17 @@
       }
 
       .page-autotrader-config .selector-item:hover {
-        background: var(--color-overlay-sm);
+        background: var(--color-component-dropdown-hover-bg);
+        color: var(--color-component-dropdown-hover-text);
       }
 
       .page-autotrader-config .selector-item.selected {
-        background: var(--color-overlay-md-strong);
+        background: var(--color-component-dropdown-selected-bg);
+        color: var(--color-component-dropdown-selected-text);
       }
 
       .page-autotrader-config .selector-item.is-disabled {
+        color: var(--color-component-dropdown-disabled-text);
         opacity: 0.45;
         cursor: not-allowed;
       }
@@ -348,6 +351,12 @@
         color: var(--color-text-primary);
         padding: 6px 8px;
         font-size: 0.8rem;
+      }
+
+      .page-autotrader-config .table-select {
+        background: var(--color-component-dropdown-bg);
+        border-color: var(--color-component-dropdown-border);
+        color: var(--color-component-dropdown-text);
       }
 
       .page-autotrader-config .table-input:focus,
@@ -665,14 +674,14 @@
         gap: 12px;
         padding: 8px 12px;
         border-radius: 8px;
-        border: 1px solid var(--color-overlay-md);
-        background: var(--color-surface-panel-strong);
+        border: 1px solid var(--color-component-dropdown-border);
+        background: var(--color-component-dropdown-bg);
         cursor: pointer;
         transition: border-color 0.2s ease, opacity 0.2s ease;
       }
 
       .page-autotrader-config .pair-selector-bar:hover {
-        border-color: var(--color-overlay-xxl);
+        border-color: var(--color-component-dropdown-border);
       }
 
       .page-autotrader-config .pair-selector-label {
@@ -697,9 +706,9 @@
       }
 
       .page-autotrader-config .pair-dropdown {
-        border: 1px solid var(--color-overlay-md);
+        border: 1px solid var(--color-component-dropdown-border);
         border-radius: 8px;
-        background: var(--color-surface-panel-strong);
+        background: var(--color-component-dropdown-bg);
         padding: 10px;
         display: none;
         gap: 10px;
@@ -749,19 +758,20 @@
         border: 1px solid transparent;
         background: transparent;
         font-size: 0.85rem;
-        color: var(--color-text-secondary);
+        color: var(--color-component-dropdown-text);
         cursor: pointer;
         transition: border-color 0.2s ease, background 0.2s ease;
       }
 
       .page-autotrader-config .pair-option:hover {
-        background: var(--color-overlay-xs);
+        background: var(--color-component-dropdown-hover-bg);
+        color: var(--color-component-dropdown-hover-text);
       }
 
       .page-autotrader-config .pair-option.is-selected {
-        border-color: var(--color-action-primary-border-strong);
-        background: var(--color-state-selected);
-        color: var(--color-text-primary);
+        border-color: var(--color-component-dropdown-border);
+        background: var(--color-component-dropdown-selected-bg);
+        color: var(--color-component-dropdown-selected-text);
       }
 
       .page-autotrader-config .pair-icon {
