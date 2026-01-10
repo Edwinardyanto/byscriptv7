@@ -87,6 +87,8 @@
         flex-direction: column;
         gap: var(--gap-inner);
         min-width: 0;
+        min-height: 0;
+        flex: 1;
       }
 
       .page-trade-history .filter-bar {
@@ -151,17 +153,44 @@
       .page-trade-history .table-panel {
         padding: 0;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
       }
 
       .page-trade-history .table-wrap {
-        max-height: 520px;
-        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        max-height: var(--trade-history-table-max-height, none);
+        overflow: hidden;
       }
 
       .page-trade-history .trade-table {
         width: 100%;
         border-collapse: collapse;
         table-layout: fixed;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+
+      .page-trade-history .trade-table thead,
+      .page-trade-history .trade-table tbody {
+        display: block;
+      }
+
+      .page-trade-history .trade-table thead tr,
+      .page-trade-history .trade-table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      .page-trade-history .trade-table tbody {
+        overflow-y: auto;
+        max-height: var(--trade-history-body-max-height, none);
+        scrollbar-gutter: stable;
       }
 
       .page-trade-history .trade-table th,
@@ -269,9 +298,9 @@
       }
 
       .page-trade-history .table-footer {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
         align-items: center;
-        justify-content: flex-end;
         gap: 16px;
         padding: 10px 16px 14px;
         font-size: 0.75rem;
@@ -284,6 +313,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        justify-self: start;
       }
 
       .page-trade-history .rows-select .rows-pill {
@@ -300,6 +330,7 @@
         display: flex;
         gap: 8px;
         align-items: center;
+        justify-self: center;
       }
 
       .page-trade-history .page-button {
