@@ -111,6 +111,11 @@ const initTradeHistoryPage = async () => {
   }
 
   const tableBody = document.querySelector("[data-trade-history-rows]");
+  const tableWrap = document.querySelector(".table-wrap");
+  const tableHeader = document.querySelector(".trade-table thead");
+  const tableFooter = document.querySelector(".table-footer");
+  const filtersSection = document.querySelector(".trade-history-filters");
+  const contentShell = document.querySelector(".content-shell");
   const dateRangeSelect = document.getElementById("trade-history-date-range");
   const exchangeSelect = document.getElementById("trade-history-exchange");
   const marketSelect = document.getElementById("trade-history-market");
@@ -123,6 +128,11 @@ const initTradeHistoryPage = async () => {
 
   if (
     !tableBody ||
+    !tableWrap ||
+    !tableHeader ||
+    !tableFooter ||
+    !filtersSection ||
+    !contentShell ||
     !dateRangeSelect ||
     !exchangeSelect ||
     !marketSelect ||
@@ -135,6 +145,24 @@ const initTradeHistoryPage = async () => {
   ) {
     return;
   }
+
+  const updateTableLayout = () => {
+    const contentStyles = window.getComputedStyle(contentShell);
+    const contentGap = parseFloat(contentStyles.rowGap || contentStyles.gap) || 0;
+    const availableHeight =
+      contentShell.clientHeight -
+      filtersSection.offsetHeight -
+      contentGap -
+      tableFooter.offsetHeight;
+    const headerHeight = tableHeader.offsetHeight;
+    const bodyMaxHeight = Math.max(availableHeight - headerHeight, 0);
+    tableWrap.style.setProperty("--trade-history-table-head-height", `${headerHeight}px`);
+    tableWrap.style.setProperty("--trade-history-body-max-height", `${bodyMaxHeight}px`);
+    tableWrap.style.setProperty(
+      "--trade-history-table-max-height",
+      `${Math.max(bodyMaxHeight + headerHeight, 0)}px`
+    );
+  };
 
   const trades = await getTradeHistoryData();
 
@@ -333,6 +361,9 @@ const initTradeHistoryPage = async () => {
 
   rowsSelect.value = String(state.rowsPerPage);
   updateTable();
+  updateTableLayout();
+
+  window.addEventListener("resize", updateTableLayout);
 
   if (!document.querySelector("[data-trade-history-dummy-note]")) {
     const note = document.createElement("span");
