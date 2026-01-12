@@ -94,9 +94,24 @@ const bindSidebarToggle = () => {
   if (!toggle) {
     return;
   }
+  const tooltip = toggle.querySelector(".sidebar-toggle-tooltip");
+  const syncSidebarState = () => {
+    const isCollapsed = appRoot?.classList.contains("has-sidebar-collapsed");
+    document.body.classList.toggle("sidebar-collapsed", Boolean(isCollapsed));
+    toggle.setAttribute("aria-expanded", String(!isCollapsed));
+    if (tooltip) {
+      tooltip.textContent = isCollapsed ? "Expand sidebar" : "Collapse sidebar";
+    }
+  };
+
+  syncSidebarState();
   toggle.addEventListener("click", () => {
     const isCollapsed = appRoot?.classList.toggle("has-sidebar-collapsed");
+    document.body.classList.toggle("sidebar-collapsed", Boolean(isCollapsed));
     toggle.setAttribute("aria-expanded", String(!isCollapsed));
+    if (tooltip) {
+      tooltip.textContent = isCollapsed ? "Expand sidebar" : "Collapse sidebar";
+    }
   });
 };
 
