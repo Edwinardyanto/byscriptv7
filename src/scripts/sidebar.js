@@ -1,30 +1,39 @@
 const sidebarMenu = [
   {
+    id: "dashboard",
     label: "Dashboard",
     path: "index.html",
-    matchPrefixes: ["index.html", ""],
+    match: (route) => route === "index.html",
   },
   {
+    id: "exchanges",
     label: "Exchanges",
     path: "pages/exchanges.html",
-    matchPrefixes: ["pages/exchanges.html"],
+    match: (route) => route === "pages/exchanges.html",
   },
   {
+    id: "autotraders",
     label: "Autotraders",
     path: "pages/autotraders.html",
-    matchPrefixes: ["pages/autotraders.html", "pages/autotraders/"],
+    match: (route) =>
+      route === "pages/autotraders.html" ||
+      route.startsWith("pages/autotraders/"),
   },
   {
+    id: "trade-history",
     label: "Trade History",
     path: "pages/trade-history.html",
-    matchPrefixes: ["pages/trade-history.html"],
+    match: (route) => route === "pages/trade-history.html",
   },
 ];
 
-const getPathSegments = () => window.location.pathname.split("/").filter(Boolean);
+const getPathSegments = () =>
+  window.location.pathname.split("/").filter(Boolean);
 
 const getCurrentRoute = () => {
   const segments = getPathSegments();
+
+  // root → dashboard
   if (segments.length === 0) {
     return "index.html";
   }
@@ -40,14 +49,13 @@ const getCurrentRoute = () => {
 const getBasePath = () => {
   const route = getCurrentRoute();
   const segments = route.split("/").filter(Boolean);
+
   if (segments.length <= 1) {
     return "";
   }
+
   return "../".repeat(segments.length - 1);
 };
-
-const isActiveRoute = (route, item) =>
-  item.matchPrefixes.some((prefix) => route === prefix || route.startsWith(prefix));
 
 const createSidebarToggle = () => {
   const toggle = document.createElement("button");
@@ -92,9 +100,12 @@ const createSidebar = () => {
   sidebarMenu.forEach((item) => {
     const listItem = document.createElement("li");
     const link = document.createElement("a");
-    const isActive = isActiveRoute(route, item);
 
-    link.className = `sidebar-item${isActive ? " sidebar-item--active" : ""}`;
+    const isActive = item.match(route);
+
+    link.className = `sidebar-item${
+      isActive ? " sidebar-item--active" : ""
+    }`;
     link.href = `${basePath}${item.path}`;
 
     const icon = document.createElement("span");
@@ -117,18 +128,14 @@ const createSidebar = () => {
 };
 
 export const initSidebar = (appRoot) => {
-  if (!appRoot) {
-    return;
-  }
+  if (!appRoot) return;
 
   if (!appRoot.querySelector(".sidebar-toggle")) {
     appRoot.prepend(createSidebarToggle());
   }
 
   const sidebarSlot = appRoot.querySelector("[data-sidebar-slot]");
-  if (!sidebarSlot) {
-    return;
-  }
+  if (!sidebarSlot) return;
 
   sidebarSlot.innerHTML = "";
   sidebarSlot.appendChild(createSidebar());
