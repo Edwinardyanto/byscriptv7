@@ -315,14 +315,18 @@ header.section-header {
 /* App Header: 3-column grid, centered title */
 header.header.section.section--header.app-header {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
   height: var(--header-height);
   border-radius: 0;
   text-align: left;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 6;
 }
 
 /* Left: optional info */
@@ -371,10 +375,15 @@ header.header.section.section--header.app-header {
 
 /* Center: title must be truly centered */
 .app-header__center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 60%;
   min-width: 0;
+  pointer-events: none;
 }
 
 .app-header__title {
@@ -384,7 +393,8 @@ header.header.section.section--header.app-header {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: min(520px, calc(100vw - 220px));
+  max-width: 100%;
+  pointer-events: auto;
 }
 
 /* Right: actions always pinned to the far right */
