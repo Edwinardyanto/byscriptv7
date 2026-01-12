@@ -97,9 +97,49 @@ const bindHeaderToggles = () => {
   });
 };
 
+const bindHeaderBack = () => {
+  const header = document.querySelector(".app-header");
+  if (!header) {
+    return;
+  }
+  const backButton = header.querySelector(".app-header__back");
+  if (!backButton || backButton.dataset.shellBound) {
+    return;
+  }
+
+  const fallbackHref = header.dataset.backHref;
+  if (!fallbackHref) {
+    backButton.hidden = true;
+    return;
+  }
+
+  backButton.hidden = false;
+  backButton.dataset.shellBound = "true";
+  backButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    let shouldUseHistory = false;
+    if (document.referrer) {
+      try {
+        const referrerOrigin = new URL(document.referrer).origin;
+        shouldUseHistory = referrerOrigin === window.location.origin;
+      } catch (error) {
+        shouldUseHistory = false;
+      }
+    }
+
+    if (window.history.length > 1 && shouldUseHistory) {
+      window.history.back();
+      return;
+    }
+
+    window.location.href = fallbackHref;
+  });
+};
+
 export const initShell = () => {
   bindSidebarToggle();
   bindHeaderToggles();
+  bindHeaderBack();
 };
 
 initShell();

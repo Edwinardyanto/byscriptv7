@@ -13,11 +13,6 @@
         --pairs-scroll-padding: 8px;
       }
 
-      .page-autotrader-config .section--header {
-        display: grid;
-        gap: 6px;
-      }
-
       .page-autotrader-config .section-subtitle {
         color: var(--color-text-tertiary);
         font-size: 0.95rem;
@@ -870,16 +865,6 @@
   </head>
   <body class="page-autotrader-config" data-mode="create">
     <div id="app" class="app">
-      <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="true">
-        <span class="sidebar-toggle-line"></span>
-        <span class="sidebar-toggle-line"></span>
-        <span class="sidebar-toggle-line"></span>
-      </button>
-      <header class="header section section--header section-header">
-        <div class="section-header">
-          <h1 class="section-title">Autotrader Configurator</h1>
-        </div>
-      </header>
       <div class="app-body">
         <aside>
           <nav class="sidebar" aria-label="Primary">
@@ -928,6 +913,74 @@
           </nav>
         </aside>
         <main class="main">
+          <header class="header section section--header app-header" data-back-href="../autotraders.html">
+            <div class="app-header__left">
+              <div class="app-header__left-top">
+                <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="true">
+                  <span class="sidebar-toggle-line"></span>
+                  <span class="sidebar-toggle-line"></span>
+                  <span class="sidebar-toggle-line"></span>
+                </button>
+                <button class="app-header__back" type="button" aria-label="Go back" hidden>&lt; Back</button>
+                <div class="app-header__breadcrumb" data-field="header.breadcrumb">Autotraders</div>
+              </div>
+              <div class="header-meta">
+                <span class="pill" data-field="header.context"></span>
+                <span class="header-subtitle" data-field="header.subtitle"></span>
+              </div>
+            </div>
+            <div class="app-header__center">
+              <h1 class="section-title app-header__title" data-field="header.title">Autotrader Configurator</h1>
+            </div>
+            <div class="app-header__right">
+              <a class="button app-header__cta" data-header-cta href="new.html" hidden>+ Add Autotrader</a>
+              <div class="app-header__actions">
+                <button class="header-icon-button" type="button" data-shell-toggle="system-alerts" aria-label="System alerts" aria-expanded="false">
+                  <span class="header-icon">⚠️</span>
+                  <span class="header-badge" data-field="header.systemAlertCount" hidden></span>
+                </button>
+                <button class="header-icon-button" type="button" data-shell-toggle="notifications" aria-label="Notifications" aria-expanded="false">
+                  <span class="header-icon">🔔</span>
+                  <span class="header-badge" data-field="header.notificationCount" hidden></span>
+                </button>
+                <button class="header-user-chip" type="button" data-shell-toggle="user-menu" aria-label="User menu" aria-expanded="false">
+                  <span class="header-user-avatar">U</span>
+                  <span class="header-user-label">Hello, User</span>
+                  <span class="header-user-caret">▾</span>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div class="header-panel" data-shell-panel="system-alerts" hidden>
+            <div class="header-panel__head">
+              <div class="header-panel__title">System Alerts</div>
+              <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+            </div>
+            <div class="header-panel__body">
+              <div class="header-panel__empty">No system alerts</div>
+              <a class="button button--ghost header-panel__link" href="../trade-history.html">View All</a>
+            </div>
+          </div>
+          <div class="header-panel" data-shell-panel="notifications" hidden>
+            <div class="header-panel__head">
+              <div class="header-panel__title">Notifications</div>
+              <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+            </div>
+            <div class="header-panel__body">
+              <div class="header-panel__empty">No notifications</div>
+            </div>
+          </div>
+          <div class="header-panel" data-shell-panel="user-menu" hidden>
+            <div class="header-panel__head">
+              <div class="header-panel__title">Account</div>
+              <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+            </div>
+            <div class="header-panel__body">
+              <a class="header-panel__item" href="../affiliate.html">Profile</a>
+              <a class="header-panel__item" href="../exchanges.html">Settings</a>
+              <button class="header-panel__item" type="button">Logout</button>
+            </div>
+          </div>
           <div class="configurator-layout">
             <section class="config-panel">
               <div class="config-section" id="section-market">
