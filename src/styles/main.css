@@ -19,6 +19,7 @@
   --ratio-total: 4.5;
   --autotrader-card-width: 280px;
   --sidebar-width: 260px;
+  --sidebar-collapsed-width: 72px;
   --sidebar-transition: 0.22s ease;
 }
 
@@ -130,7 +131,7 @@ body::after {
 }
 
 .app.has-sidebar-collapsed .sidebar {
-  width: 0;
+  width: var(--sidebar-collapsed-width);
   padding: 0;
   border: 0;
   opacity: 0;
@@ -285,7 +286,7 @@ body::after {
 
 .app.has-sidebar-collapsed .app-body,
 #app.has-sidebar-collapsed .app-body {
-  grid-template-columns: 0 minmax(0, 1fr);
+  grid-template-columns: var(--sidebar-collapsed-width) minmax(0, 1fr);
 }
 
 #app > header,
@@ -298,6 +299,11 @@ body::after {
   width: var(--sidebar-width);
   min-width: 0;
   min-height: 0;
+}
+
+.app.has-sidebar-collapsed .app-body > aside,
+#app.has-sidebar-collapsed .app-body > aside {
+  width: var(--sidebar-collapsed-width);
 }
 
 header.section-header {
