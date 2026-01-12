@@ -5,7 +5,6 @@ import { renderAlerts } from "./render/alerts.js";
 import { renderTopAutotraders } from "./render/topAutotraders.js";
 import { renderTradeHistory } from "./render/tradeHistory.js";
 import { renderTotalPerformanceChart } from "./components/TotalPerformanceChart.js";
-import { initSidebar } from "./sidebar.js";
 
 const appRoot = document.getElementById("app");
 
@@ -125,7 +124,6 @@ const loadDashboardData = async () => {
 
 if (appRoot) {
   appRoot.dataset.ready = "true";
-  initSidebar(appRoot);
   subscribe(renderDashboard);
   bindSidebarToggle();
   renderDashboard(getState());
