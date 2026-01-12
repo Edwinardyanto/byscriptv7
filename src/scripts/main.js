@@ -5,6 +5,7 @@ import { renderAlerts } from "./render/alerts.js";
 import { renderTopAutotraders } from "./render/topAutotraders.js";
 import { renderTradeHistory } from "./render/tradeHistory.js";
 import { renderTotalPerformanceChart } from "./components/TotalPerformanceChart.js";
+import { initShell } from "./shell.js";
 
 const appRoot = document.getElementById("app");
 
@@ -88,17 +89,6 @@ const renderDashboard = (state) => {
   });
 };
 
-const bindSidebarToggle = () => {
-  const toggle = document.querySelector(".sidebar-toggle");
-  if (!toggle) {
-    return;
-  }
-  toggle.addEventListener("click", () => {
-    const isCollapsed = appRoot?.classList.toggle("has-sidebar-collapsed");
-    toggle.setAttribute("aria-expanded", String(!isCollapsed));
-  });
-};
-
 const loadDashboardData = async () => {
   setSectionStatuses("loading");
   try {
@@ -125,7 +115,7 @@ const loadDashboardData = async () => {
 if (appRoot) {
   appRoot.dataset.ready = "true";
   subscribe(renderDashboard);
-  bindSidebarToggle();
+  initShell();
   renderDashboard(getState());
   loadDashboardData();
 }
