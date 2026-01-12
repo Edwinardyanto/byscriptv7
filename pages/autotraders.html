@@ -265,6 +265,7 @@
                         <th>Win Rate</th>
                         <th>Running</th>
                         <th>Action</th>
+                        <th>Detail</th>
                       </tr>
                     </thead>
                     <tbody id="autotraders-tbody"></tbody>
@@ -439,6 +440,7 @@
             <td>${row.winRate}%</td>
             <td>${row.running}</td>
             <td><button class="table-action action-btn" type="button" data-id="${row.id}">${actionLabel}</button></td>
+            <td><button class="table-action detail-btn" type="button" data-id="${row.id}">View</button></td>
           </tr>
         `;
       };
@@ -510,7 +512,20 @@
 
       document.addEventListener("click", (e) => {
         const target = e.target;
-        if (!(target instanceof HTMLElement) || !target.classList.contains("action-btn")) {
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+
+        if (target.classList.contains("detail-btn")) {
+          const id = Number(target.dataset.id);
+          if (Number.isNaN(id)) {
+            return;
+          }
+          window.location.href = `autotraders/detail.html?id=${id}`;
+          return;
+        }
+
+        if (!target.classList.contains("action-btn")) {
           return;
         }
 
