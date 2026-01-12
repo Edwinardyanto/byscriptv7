@@ -168,17 +168,13 @@ body::after {
 }
 
 .sidebar-toggle {
-  margin-left: auto;
   width: 36px;
   height: 36px;
   border-radius: 10px;
   border: 1px solid var(--color-overlay-lg);
   background: var(--color-overlay-xs-strong);
-  position: fixed;
-  top: calc((var(--header-height) / 2) - 18px);
-  left: 16px;
-  right: auto;
-  z-index: 6;
+  position: static;
+  z-index: 2;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -186,6 +182,7 @@ body::after {
   gap: 4px;
   cursor: pointer;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .sidebar-toggle-line {
@@ -337,6 +334,41 @@ header.header.section.section--header.app-header {
   min-width: 0;
 }
 
+.app-header__left-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  width: 100%;
+}
+
+.app-header__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-overlay-xxs);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.app-header__back[hidden] {
+  display: none;
+}
+
+.app-header__back:hover,
+.app-header__back:focus-visible {
+  border-color: var(--color-overlay-md);
+  background: var(--color-overlay-xs-strong);
+  box-shadow: 0 0 0 2px var(--color-overlay-xs);
+  outline: none;
+}
+
 /* Center: title must be truly centered */
 .app-header__center {
   display: flex;
@@ -370,6 +402,11 @@ header.header.section.section--header.app-header {
   text-transform: uppercase;
   color: var(--color-muted);
   opacity: 0.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 /* If breadcrumb is empty, hide it */

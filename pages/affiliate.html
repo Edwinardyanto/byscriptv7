@@ -9,14 +9,17 @@
   </head>
   <body>
     <div id="app" class="app">
-      <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="true">
-        <span class="sidebar-toggle-line"></span>
-        <span class="sidebar-toggle-line"></span>
-        <span class="sidebar-toggle-line"></span>
-      </button>
       <header class="header section section--header app-header">
         <div class="app-header__left">
-          <div class="app-header__breadcrumb" data-field="header.breadcrumb">Affiliate</div>
+          <div class="app-header__left-top">
+            <button class="sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="true">
+              <span class="sidebar-toggle-line"></span>
+              <span class="sidebar-toggle-line"></span>
+              <span class="sidebar-toggle-line"></span>
+            </button>
+            <button class="app-header__back" type="button" aria-label="Go back" hidden>&lt; Back</button>
+            <div class="app-header__breadcrumb" data-field="header.breadcrumb">Affiliate</div>
+          </div>
           <div class="header-meta">
             <span class="pill" data-field="header.context"></span>
             <span class="header-subtitle" data-field="header.subtitle"></span>
