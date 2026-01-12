@@ -116,7 +116,7 @@ body::after {
   background: linear-gradient(180deg, var(--color-surface-panel-raised), var(--color-surface-panel-strong));
   border: 1px solid var(--color-border);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-  padding: 8px 12px;
+  padding: calc(var(--header-height) + 8px) 12px 8px;
   box-shadow: var(--shadow-soft);
   position: fixed;
   left: 0;
