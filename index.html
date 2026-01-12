@@ -14,18 +14,66 @@
         <span class="sidebar-toggle-line"></span>
         <span class="sidebar-toggle-line"></span>
       </button>
-      <!-- Header: global dashboard context and title area -->
-      <header class="header section section--header section-header">
-        <div class="section-header">
-          <h1 class="section-title">Dashboard</h1>
-        </div>
-        <div class="section-body">
+      <header class="header section section--header section-header app-header">
+        <div class="app-header__left">
+          <div class="app-header__titleblock">
+            <div class="app-header__breadcrumb" data-field="header.breadcrumb"></div>
+            <h1 class="section-title" data-field="header.title">Dashboard</h1>
+          </div>
           <div class="header-meta">
             <span class="pill" data-field="header.context"></span>
             <span class="header-subtitle" data-field="header.subtitle"></span>
           </div>
         </div>
+        <div class="app-header__right">
+          <a class="button app-header__cta" data-header-cta href="pages/autotraders/new.html" hidden>+ Add Autotrader</a>
+          <div class="app-header__actions">
+            <button class="header-icon-button" type="button" data-shell-toggle="system-alerts" aria-label="System alerts" aria-expanded="false">
+              <span class="header-icon">⚠️</span>
+              <span class="header-badge" data-field="header.systemAlertCount" hidden></span>
+            </button>
+            <button class="header-icon-button" type="button" data-shell-toggle="notifications" aria-label="Notifications" aria-expanded="false">
+              <span class="header-icon">🔔</span>
+              <span class="header-badge" data-field="header.notificationCount" hidden></span>
+            </button>
+            <button class="header-user-chip" type="button" data-shell-toggle="user-menu" aria-label="User menu" aria-expanded="false">
+              <span class="header-user-avatar">U</span>
+              <span class="header-user-label">Hello, User</span>
+              <span class="header-user-caret">▾</span>
+            </button>
+          </div>
+        </div>
       </header>
+      <div class="header-panel" data-shell-panel="system-alerts" hidden>
+        <div class="header-panel__head">
+          <div class="header-panel__title">System Alerts</div>
+          <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+        </div>
+        <div class="header-panel__body">
+          <div class="header-panel__empty">No system alerts</div>
+          <a class="button button--ghost header-panel__link" href="pages/trade-history.html">View All</a>
+        </div>
+      </div>
+      <div class="header-panel" data-shell-panel="notifications" hidden>
+        <div class="header-panel__head">
+          <div class="header-panel__title">Notifications</div>
+          <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+        </div>
+        <div class="header-panel__body">
+          <div class="header-panel__empty">No notifications</div>
+        </div>
+      </div>
+      <div class="header-panel" data-shell-panel="user-menu" hidden>
+        <div class="header-panel__head">
+          <div class="header-panel__title">Account</div>
+          <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+        </div>
+        <div class="header-panel__body">
+          <a class="header-panel__item" href="pages/affiliate.html">Profile</a>
+          <a class="header-panel__item" href="pages/exchanges.html">Settings</a>
+          <button class="header-panel__item" type="button">Logout</button>
+        </div>
+      </div>
       <div class="app-body">
         <aside>
           <nav class="sidebar" aria-label="Primary">
@@ -205,6 +253,7 @@
         </main>
       </div>
     </div>
+    <script type="module" src="src/scripts/shell.js"></script>
     <script type="module" src="src/scripts/main.js"></script>
   </body>
 </html>
