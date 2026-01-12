@@ -7,81 +7,6 @@
     <link rel="stylesheet" href="../src/styles/color-tokens.css" />
     <link rel="stylesheet" href="../src/styles/main.css" />
     <style>
-      .page-trade-history .trade-history-header {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-        height: 100%;
-        padding: 0 18px;
-      }
-
-      .page-trade-history .trade-history-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-        text-align: center;
-      }
-
-      .page-trade-history .trade-history-title span {
-        font-size: 0.6rem;
-        text-transform: uppercase;
-        letter-spacing: 0.28em;
-        color: var(--color-muted);
-      }
-
-      .page-trade-history .trade-history-title h1 {
-        margin: 0;
-        font-size: 0.95rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        color: var(--color-text);
-      }
-
-      .page-trade-history .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .page-trade-history .header-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--color-border);
-        background: var(--color-overlay-xxs);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-muted);
-        font-size: 0.85rem;
-      }
-
-      .page-trade-history .header-avatar {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 4px 8px;
-        border-radius: 999px;
-        border: 1px solid var(--color-border);
-        background: var(--color-overlay-xxs);
-        color: var(--color-muted);
-        font-size: 0.75rem;
-      }
-
-      .page-trade-history .avatar-circle {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: var(--color-state-selected);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-text);
-        font-weight: 600;
-        font-size: 0.72rem;
-      }
-
       .page-trade-history .content-shell {
         display: flex;
         flex-direction: column;
@@ -343,23 +268,66 @@
         <span class="sidebar-toggle-line"></span>
         <span class="sidebar-toggle-line"></span>
       </button>
-      <header class="header section section--header section-header">
-        <div class="trade-history-header">
-          <div></div>
-          <div class="trade-history-title">
-            <span>Activity &gt; Trade History</span>
-            <h1>Trade History</h1>
+      <header class="header section section--header app-header">
+        <div class="app-header__left">
+          <div class="app-header__breadcrumb" data-field="header.breadcrumb">Activity &gt; Trade History</div>
+          <div class="header-meta">
+            <span class="pill" data-field="header.context"></span>
+            <span class="header-subtitle" data-field="header.subtitle"></span>
           </div>
-          <div class="header-actions">
-            <div class="header-icon" aria-hidden="true">🔔</div>
-            <div class="header-avatar">
-              <div class="avatar-circle">U</div>
-              <span>Hello, User</span>
-              <span aria-hidden="true">▾</span>
-            </div>
+        </div>
+        <div class="app-header__center">
+          <h1 class="section-title app-header__title" data-field="header.title">Trade History</h1>
+        </div>
+        <div class="app-header__right">
+          <a class="button app-header__cta" data-header-cta href="autotraders/new.html" hidden>+ Add Autotrader</a>
+          <div class="app-header__actions">
+            <button class="header-icon-button" type="button" data-shell-toggle="system-alerts" aria-label="System alerts" aria-expanded="false">
+              <span class="header-icon">⚠️</span>
+              <span class="header-badge" data-field="header.systemAlertCount" hidden></span>
+            </button>
+            <button class="header-icon-button" type="button" data-shell-toggle="notifications" aria-label="Notifications" aria-expanded="false">
+              <span class="header-icon">🔔</span>
+              <span class="header-badge" data-field="header.notificationCount" hidden></span>
+            </button>
+            <button class="header-user-chip" type="button" data-shell-toggle="user-menu" aria-label="User menu" aria-expanded="false">
+              <span class="header-user-avatar">U</span>
+              <span class="header-user-label">Hello, User</span>
+              <span class="header-user-caret">▾</span>
+            </button>
           </div>
         </div>
       </header>
+      <div class="header-panel" data-shell-panel="system-alerts" hidden>
+        <div class="header-panel__head">
+          <div class="header-panel__title">System Alerts</div>
+          <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+        </div>
+        <div class="header-panel__body">
+          <div class="header-panel__empty">No system alerts</div>
+          <a class="button button--ghost header-panel__link" href="trade-history.html">View All</a>
+        </div>
+      </div>
+      <div class="header-panel" data-shell-panel="notifications" hidden>
+        <div class="header-panel__head">
+          <div class="header-panel__title">Notifications</div>
+          <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+        </div>
+        <div class="header-panel__body">
+          <div class="header-panel__empty">No notifications</div>
+        </div>
+      </div>
+      <div class="header-panel" data-shell-panel="user-menu" hidden>
+        <div class="header-panel__head">
+          <div class="header-panel__title">Account</div>
+          <button class="header-panel__close" type="button" data-shell-close aria-label="Close">✕</button>
+        </div>
+        <div class="header-panel__body">
+          <a class="header-panel__item" href="affiliate.html">Profile</a>
+          <a class="header-panel__item" href="exchanges.html">Settings</a>
+          <button class="header-panel__item" type="button">Logout</button>
+        </div>
+      </div>
       <div class="app-body">
         <aside>
           <nav class="sidebar" aria-label="Primary">
@@ -523,6 +491,7 @@
         </main>
       </div>
     </div>
+    <script type="module" src="../src/scripts/shell.js"></script>
     <script type="module" src="../src/scripts/main.js"></script>
     <script type="module" src="../src/scripts/pages/tradeHistoryPage.js"></script>
   </body>
