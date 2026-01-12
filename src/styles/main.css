@@ -129,6 +129,14 @@ body::after {
   z-index: 3;
 }
 
+.sidebar .scrollable {
+  flex: 1;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
 .app.has-sidebar-collapsed .sidebar {
   width: 0;
   padding: 0;
