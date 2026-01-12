@@ -19,7 +19,7 @@
   --ratio-total: 4.5;
   --autotrader-card-width: 280px;
   --sidebar-width: 260px;
-  --sidebar-collapsed-width: 72px;
+  --sidebar-collapsed-width: 260px;
   --sidebar-transition: 0.22s ease;
 }
 
@@ -304,6 +304,13 @@ body::after {
 .app.has-sidebar-collapsed .app-body > aside,
 #app.has-sidebar-collapsed .app-body > aside {
   width: var(--sidebar-collapsed-width);
+}
+
+.app.has-sidebar-collapsed .main,
+#app.has-sidebar-collapsed .main {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 header.section-header {
