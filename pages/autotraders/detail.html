@@ -746,16 +746,12 @@
         </main>
       </div>
     </div>
-    <script>
-      const toggle = document.querySelector(".sidebar-toggle");
-      const appRoot = document.getElementById("app");
-      if (toggle && appRoot) {
-        toggle.addEventListener("click", () => {
-          const isCollapsed = appRoot.classList.toggle("has-sidebar-collapsed");
-          toggle.setAttribute("aria-expanded", String(!isCollapsed));
-        });
-      }
+    <script type="module">
+      import { initSidebarToggle } from "../../src/scripts/sidebar.js";
 
+      initSidebarToggle();
+    </script>
+    <script>
       const tvAlertSelect = document.getElementById("tv-alert-action");
       const payloadContent = document.getElementById("tv-payload-content");
       const payloadPlaceholder = document.getElementById("tv-payload-placeholder");
