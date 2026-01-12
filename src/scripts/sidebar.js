@@ -64,11 +64,26 @@ const createSidebarToggle = () => {
   toggle.setAttribute("aria-label", "Toggle sidebar");
   toggle.setAttribute("aria-expanded", "true");
 
-  for (let i = 0; i < 3; i += 1) {
-    const line = document.createElement("span");
-    line.className = "sidebar-toggle-line";
-    toggle.appendChild(line);
-  }
+  const icon = document.createElement("span");
+  icon.className = "sidebar-toggle-icon";
+  icon.setAttribute("aria-hidden", "true");
+
+  const sidebarPanel = document.createElement("span");
+  sidebarPanel.className = "sidebar-toggle-panel sidebar-toggle-panel--sidebar";
+
+  const contentPanel = document.createElement("span");
+  contentPanel.className = "sidebar-toggle-panel sidebar-toggle-panel--content";
+
+  icon.appendChild(sidebarPanel);
+  icon.appendChild(contentPanel);
+
+  const tooltip = document.createElement("span");
+  tooltip.className = "sidebar-toggle-tooltip";
+  tooltip.textContent = "Collapse sidebar";
+  tooltip.setAttribute("role", "tooltip");
+
+  toggle.appendChild(icon);
+  toggle.appendChild(tooltip);
 
   return toggle;
 };
