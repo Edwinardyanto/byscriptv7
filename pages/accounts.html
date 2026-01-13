@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounts | byScript</title>
+    <link rel="stylesheet" href="../src/styles/color-tokens.css" />
+    <link rel="stylesheet" href="../src/styles/main.css" />
+  </head>
+  <body class="page-accounts">
+    <div id="app" class="app">
+      <header class="header section section--header section-header accounts-header">
+        <div class="section-header">
+          <h1 class="section-title">Accounts</h1>
+        </div>
+        <div class="section-body">
+          <div class="header-meta">
+            <span class="pill">byScript Account · Orion Capital Desk</span>
+            <span class="header-subtitle">Unified exchange and wallet endpoints</span>
+          </div>
+        </div>
+      </header>
+      <div class="app-body">
+        <aside data-sidebar-slot></aside>
+        <main class="main">
+          <div class="accounts-shell">
+            <section class="section section--primary accounts-overview">
+              <div class="section-header">
+                <div>
+                  <h2 class="section-title">Accounts Overview</h2>
+                  <p class="section-subtitle">System context for connected financial endpoints.</p>
+                </div>
+                <div class="accounts-timeframes">
+                  <button class="timeframe-pill" type="button">7D</button>
+                  <button class="timeframe-pill" type="button">30D</button>
+                  <button class="timeframe-pill" type="button">90D</button>
+                  <button class="timeframe-pill timeframe-pill--active" type="button">All</button>
+                </div>
+              </div>
+              <div class="section-body">
+                <div class="accounts-overview-grid">
+                  <div class="accounts-overview-metrics">
+                    <div class="overview-metric">
+                      <span class="metric-label">Total combined balance (USD)</span>
+                      <span class="metric-value">$42,918,440.28</span>
+                      <span class="metric-sub">Includes exchange + wallet holdings</span>
+                    </div>
+                    <div class="overview-metric">
+                      <span class="metric-label">Connected accounts</span>
+                      <span class="metric-value">12</span>
+                      <span class="metric-sub">8 Exchange · 4 Wallet</span>
+                    </div>
+                    <div class="overview-metric">
+                      <span class="metric-label">Account type distribution</span>
+                      <div class="distribution-bar">
+                        <span class="segment segment--exchange" style="width: 66%"></span>
+                        <span class="segment segment--wallet" style="width: 34%"></span>
+                      </div>
+                      <div class="distribution-legend">
+                        <span><i class="legend-dot legend-dot--exchange"></i>Exchange 66%</span>
+                        <span><i class="legend-dot legend-dot--wallet"></i>Wallet 34%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accounts-overview-chart">
+                    <div class="donut-chart">
+                      <svg viewBox="0 0 120 120" aria-hidden="true">
+                        <circle class="donut-ring" cx="60" cy="60" r="46" />
+                        <circle class="donut-segment donut-segment--exchange" cx="60" cy="60" r="46" />
+                        <circle class="donut-segment donut-segment--wallet" cx="60" cy="60" r="46" />
+                      </svg>
+                      <div class="donut-center">
+                        <div class="donut-value">12</div>
+                        <div class="donut-label">Accounts</div>
+                      </div>
+                    </div>
+                    <div class="donut-summary">
+                      <div>
+                        <span class="metric-label">Exchange endpoints</span>
+                        <span class="metric-value">8</span>
+                        <span class="metric-sub">Binance, OKX, Bybit, Kraken</span>
+                      </div>
+                      <div>
+                        <span class="metric-label">Wallet endpoints</span>
+                        <span class="metric-value">4</span>
+                        <span class="metric-sub">MetaMask, WalletConnect</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section section--secondary accounts-table-section">
+              <div class="section-header">
+                <div>
+                  <h2 class="section-title">Accounts</h2>
+                  <p class="section-subtitle">Every endpoint is uniquely referenceable for support and auditing.</p>
+                </div>
+                <button class="button button--ghost" type="button">Add account</button>
+              </div>
+              <div class="section-body">
+                <div class="accounts-table-wrapper">
+                  <table class="accounts-table">
+                    <thead>
+                      <tr>
+                        <th>Account</th>
+                        <th>Account name</th>
+                        <th>Account ID</th>
+                        <th>Account type</th>
+                        <th>Provider</th>
+                        <th>Environment</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                        <th>Linked autotraders</th>
+                        <th>Assets</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="account-ref">
+                            <span class="account-code">AC-EX-014</span>
+                            <span class="account-meta">Primary</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="account-name">Binance Alpha Desk</div>
+                          <div class="account-sub">byScript Account: Orion Capital Desk</div>
+                        </td>
+                        <td>
+                          <div class="account-id">0x8f2c...19f0</div>
+                          <div class="account-sub">API key: 2d9f2</div>
+                        </td>
+                        <td><span class="badge badge--exchange">Exchange Account</span></td>
+                        <td>Binance</td>
+                        <td>Spot</td>
+                        <td>
+                          <strong>$12,904,220</strong>
+                          <div class="account-sub">BTC 128.4</div>
+                        </td>
+                        <td><span class="status-pill status-pill--active">Connected</span></td>
+                        <td><a class="link-pill" href="#">6</a></td>
+                        <td>
+                          <div class="asset-chips">
+                            <span class="asset-chip">BTC</span>
+                            <span class="asset-chip">USDT</span>
+                            <span class="asset-chip">ETH</span>
+                            <span class="asset-chip asset-chip--muted">+9</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="table-actions">
+                            <button class="kebab" type="button" aria-label="Account actions">⋮</button>
+                            <div class="action-list">
+                              <span>View details</span>
+                              <span>Edit permissions</span>
+                              <span>Reconnect</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="account-ref">
+                            <span class="account-code">AC-EX-021</span>
+                            <span class="account-meta">Derivatives</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="account-name">OKX Risk Core</div>
+                          <div class="account-sub">byScript Account: Orion Capital Desk</div>
+                        </td>
+                        <td>
+                          <div class="account-id">0x41ad...7c90</div>
+                          <div class="account-sub">API key: 7b18c</div>
+                        </td>
+                        <td><span class="badge badge--exchange">Exchange Account</span></td>
+                        <td>OKX</td>
+                        <td>Futures</td>
+                        <td>
+                          <strong>$9,448,112</strong>
+                          <div class="account-sub">BTC 94.1</div>
+                        </td>
+                        <td><span class="status-pill status-pill--limited">Limited</span></td>
+                        <td><a class="link-pill" href="#">4</a></td>
+                        <td>
+                          <div class="asset-chips">
+                            <span class="asset-chip">BTC</span>
+                            <span class="asset-chip">ETH</span>
+                            <span class="asset-chip">USDC</span>
+                            <span class="asset-chip asset-chip--muted">+4</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="table-actions">
+                            <button class="kebab" type="button" aria-label="Account actions">⋮</button>
+                            <div class="action-list">
+                              <span>View details</span>
+                              <span>Edit permissions</span>
+                              <span>Reconnect</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="account-ref">
+                            <span class="account-code">AC-EX-033</span>
+                            <span class="account-meta">Liquidity</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="account-name">Bybit Market Ops</div>
+                          <div class="account-sub">byScript Account: Orion Capital Desk</div>
+                        </td>
+                        <td>
+                          <div class="account-id">0xb7c3...e2c1</div>
+                          <div class="account-sub">API key: 3c5e1</div>
+                        </td>
+                        <td><span class="badge badge--exchange">Exchange Account</span></td>
+                        <td>Bybit</td>
+                        <td>Margin</td>
+                        <td>
+                          <strong>$6,183,970</strong>
+                          <div class="account-sub">USDT 6.18m</div>
+                        </td>
+                        <td><span class="status-pill status-pill--warning">API Issue</span></td>
+                        <td><a class="link-pill" href="#">2</a></td>
+                        <td>
+                          <div class="asset-chips">
+                            <span class="asset-chip">USDT</span>
+                            <span class="asset-chip">ETH</span>
+                            <span class="asset-chip">ARB</span>
+                            <span class="asset-chip asset-chip--muted">+6</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="table-actions">
+                            <button class="kebab" type="button" aria-label="Account actions">⋮</button>
+                            <div class="action-list">
+                              <span>View details</span>
+                              <span>Edit permissions</span>
+                              <span>Reconnect</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="account-ref">
+                            <span class="account-code">AC-WAL-008</span>
+                            <span class="account-meta">Treasury</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="account-name">MetaMask Treasury</div>
+                          <div class="account-sub">byScript Account: Orion Capital Desk</div>
+                        </td>
+                        <td>
+                          <div class="account-id">0x992d...4a31</div>
+                          <div class="account-sub">Wallet seed: 1/4</div>
+                        </td>
+                        <td><span class="badge badge--wallet">Wallet Account</span></td>
+                        <td>MetaMask</td>
+                        <td>EVM</td>
+                        <td>
+                          <strong>$5,228,300</strong>
+                          <div class="account-sub">ETH 1,944</div>
+                        </td>
+                        <td><span class="status-pill status-pill--active">Connected</span></td>
+                        <td><a class="link-pill" href="#">3</a></td>
+                        <td>
+                          <div class="asset-chips">
+                            <span class="asset-chip">ETH</span>
+                            <span class="asset-chip">USDC</span>
+                            <span class="asset-chip">OP</span>
+                            <span class="asset-chip asset-chip--muted">+12</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="table-actions">
+                            <button class="kebab" type="button" aria-label="Account actions">⋮</button>
+                            <div class="action-list">
+                              <span>View details</span>
+                              <span>Edit permissions</span>
+                              <span>Disable</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="account-ref">
+                            <span class="account-code">AC-WAL-011</span>
+                            <span class="account-meta">Ops Wallet</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="account-name">WalletConnect Bridge</div>
+                          <div class="account-sub">byScript Account: Orion Capital Desk</div>
+                        </td>
+                        <td>
+                          <div class="account-id">0x2b4e...91fd</div>
+                          <div class="account-sub">Session: 8h ago</div>
+                        </td>
+                        <td><span class="badge badge--wallet">Wallet Account</span></td>
+                        <td>WalletConnect</td>
+                        <td>Multichain</td>
+                        <td>
+                          <strong>$2,083,938</strong>
+                          <div class="account-sub">SOL 18,240</div>
+                        </td>
+                        <td><span class="status-pill status-pill--error">Permission error</span></td>
+                        <td><a class="link-pill" href="#">1</a></td>
+                        <td>
+                          <div class="asset-chips">
+                            <span class="asset-chip">SOL</span>
+                            <span class="asset-chip">USDC</span>
+                            <span class="asset-chip">MATIC</span>
+                            <span class="asset-chip asset-chip--muted">+5</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="table-actions">
+                            <button class="kebab" type="button" aria-label="Account actions">⋮</button>
+                            <div class="action-list">
+                              <span>View details</span>
+                              <span>Edit permissions</span>
+                              <span>Reconnect</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-pagination">
+                  <div class="pagination-info">Showing 1-5 of 12 accounts</div>
+                  <div class="pagination-controls">
+                    <button class="page-button" type="button">1</button>
+                    <button class="page-button is-active" type="button">2</button>
+                    <button class="page-button" type="button">3</button>
+                    <button class="page-button" type="button">Next</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="../src/scripts/main.js"></script>
+  </body>
+</html>
