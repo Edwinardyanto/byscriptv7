@@ -3,31 +3,512 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exchanges | Trading Dashboard</title>
-    <link rel="stylesheet" href="../src/styles/color-tokens.css">
-    <link rel="stylesheet" href="../src/styles/main.css">
+    <title>Exchanges | byScript</title>
+    <link rel="stylesheet" href="../src/styles/color-tokens.css" />
+    <link rel="stylesheet" href="../src/styles/main.css" />
   </head>
-  <body>
+  <body class="page-exchanges">
     <div id="app" class="app">
       <header class="header section section--header section-header">
         <div class="section-header">
           <h1 class="section-title">Exchanges</h1>
         </div>
-        <div class="section-body">
-          <div class="header-meta">
-            <span class="pill" data-field="header.context"></span>
-            <span class="header-subtitle" data-field="header.subtitle"></span>
-          </div>
-        </div>
       </header>
       <div class="app-body">
         <aside data-sidebar-slot></aside>
         <main class="main">
-          <section class="section section--secondary empty-state">
+          <section class="section section--primary exchanges-summary">
+            <div class="section-header">
+              <div class="summary-title">
+                <h2 class="section-title">Asset Summary</h2>
+              </div>
+              <div class="summary-controls">
+                <div class="summary-range">
+                  <button class="range-pill" type="button">7D</button>
+                  <button class="range-pill" type="button">30D</button>
+                  <button class="range-pill" type="button">90D</button>
+                  <button class="range-pill range-pill--active" type="button">All</button>
+                </div>
+              </div>
+            </div>
             <div class="section-body">
-              <div class="empty-state__content">
-                <h2 class="empty-state__title">Exchanges</h2>
-                <p class="empty-state__subtitle">This page is under construction</p>
+              <div class="summary-grid">
+                <div class="summary-left">
+                  <div class="summary-balance">
+                    <div class="summary-amount">
+                      <span class="amount-value">$12,430</span>
+                      <span class="amount-change">+3.4%</span>
+                    </div>
+                  </div>
+                  <div class="summary-chart">
+                    <div class="chart-track">
+                      <svg viewBox="0 0 640 220" aria-hidden="true">
+                        <path
+                          d="M30 170 L200 120 L380 90 L610 55"
+                          class="chart-line"
+                        />
+                        <path
+                          d="M30 170 L200 120 L380 90 L610 55"
+                          class="chart-line chart-line--glow"
+                        />
+                      </svg>
+                      <div class="chart-axis">
+                        <span>Jan 7</span>
+                        <span>Jan 10</span>
+                        <span>Jan 13</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-right">
+                  <div class="donut-wrap">
+                    <div class="donut-chart">
+                      <svg viewBox="0 0 160 160" aria-hidden="true">
+                        <circle class="donut-ring" cx="80" cy="80" r="58" />
+                        <circle class="donut-segment seg-1" cx="80" cy="80" r="58" />
+                        <circle class="donut-segment seg-2" cx="80" cy="80" r="58" />
+                        <circle class="donut-segment seg-3" cx="80" cy="80" r="58" />
+                        <circle class="donut-segment seg-4" cx="80" cy="80" r="58" />
+                        <circle class="donut-segment seg-5" cx="80" cy="80" r="58" />
+                      </svg>
+                    </div>
+                    <div class="donut-legend">
+                      <div class="legend-title">Accounts</div>
+                      <div class="legend-item">
+                        <span class="legend-dot dot-1"></span>
+                        <span>Accounts 1</span>
+                      </div>
+                      <div class="legend-item">
+                        <span class="legend-dot dot-2"></span>
+                        <span>Accounts 2</span>
+                      </div>
+                      <div class="legend-item">
+                        <span class="legend-dot dot-3"></span>
+                        <span>Accounts 3</span>
+                      </div>
+                      <div class="legend-item">
+                        <span class="legend-dot dot-4"></span>
+                        <span>Accounts 4</span>
+                      </div>
+                      <div class="legend-item">
+                        <span class="legend-dot dot-5"></span>
+                        <span>Accounts 5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--secondary exchanges-table-section">
+            <div class="section-body">
+              <div class="exchanges-table">
+                <div class="table-header">
+                  <div>Exchange</div>
+                  <div>Balance</div>
+                  <div>7D</div>
+                  <div>30D</div>
+                  <div>90D</div>
+                  <div>Autotrader</div>
+                  <div>Assets</div>
+                  <div></div>
+                </div>
+                <div class="table-body">
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">BugNu8kadTEb7IL095RP</div>
+                        <div class="exchange-sub">Binance Spot</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$18,789.33</div>
+                    <div class="perf-cell">+7.12%</div>
+                    <div class="perf-cell">+14.12%</div>
+                    <div class="perf-cell">+25.12%</div>
+                    <div class="auto-cell">9</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">oqUALEo9XYBNq6F8aTaT</div>
+                        <div class="exchange-sub">Binance Futures USDT-M</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$21,788.13</div>
+                    <div class="perf-cell">+1.12%</div>
+                    <div class="perf-cell">+8.12%</div>
+                    <div class="perf-cell">+125.12%</div>
+                    <div class="auto-cell">12</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">BugNu8kadTEb7IL095RP</div>
+                        <div class="exchange-sub">Binance Spot</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$18,789.33</div>
+                    <div class="perf-cell">+7.12%</div>
+                    <div class="perf-cell">+14.12%</div>
+                    <div class="perf-cell">+25.12%</div>
+                    <div class="auto-cell">9</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">oqUALEo9XYBNq6F8aTaT</div>
+                        <div class="exchange-sub">Binance Futures USDT-M</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$21,788.13</div>
+                    <div class="perf-cell">+1.12%</div>
+                    <div class="perf-cell">+8.12%</div>
+                    <div class="perf-cell">+125.12%</div>
+                    <div class="auto-cell">12</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">BugNu8kadTEb7IL095RP</div>
+                        <div class="exchange-sub">Binance Spot</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$18,789.33</div>
+                    <div class="perf-cell">+7.12%</div>
+                    <div class="perf-cell">+14.12%</div>
+                    <div class="perf-cell">+25.12%</div>
+                    <div class="auto-cell">9</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">oqUALEo9XYBNq6F8aTaT</div>
+                        <div class="exchange-sub">Binance Futures USDT-M</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$21,788.13</div>
+                    <div class="perf-cell">+1.12%</div>
+                    <div class="perf-cell">+8.12%</div>
+                    <div class="perf-cell">+125.12%</div>
+                    <div class="auto-cell">12</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">BugNu8kadTEb7IL095RP</div>
+                        <div class="exchange-sub">Binance Spot</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$18,789.33</div>
+                    <div class="perf-cell">+7.12%</div>
+                    <div class="perf-cell">+14.12%</div>
+                    <div class="perf-cell">+25.12%</div>
+                    <div class="auto-cell">9</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">oqUALEo9XYBNq6F8aTaT</div>
+                        <div class="exchange-sub">Binance Futures USDT-M</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$21,788.13</div>
+                    <div class="perf-cell">+1.12%</div>
+                    <div class="perf-cell">+8.12%</div>
+                    <div class="perf-cell">+125.12%</div>
+                    <div class="auto-cell">12</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">BugNu8kadTEb7IL095RP</div>
+                        <div class="exchange-sub">Binance Spot</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$18,789.33</div>
+                    <div class="perf-cell">+7.12%</div>
+                    <div class="perf-cell">+14.12%</div>
+                    <div class="perf-cell">+25.12%</div>
+                    <div class="auto-cell">9</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">oqUALEo9XYBNq6F8aTaT</div>
+                        <div class="exchange-sub">Binance Futures USDT-M</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$21,788.13</div>
+                    <div class="perf-cell">+1.12%</div>
+                    <div class="perf-cell">+8.12%</div>
+                    <div class="perf-cell">+125.12%</div>
+                    <div class="auto-cell">12</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="exchange-cell">
+                      <div class="exchange-icon">◆</div>
+                      <div>
+                        <div class="exchange-name">BugNu8kadTEb7IL095RP</div>
+                        <div class="exchange-sub">Binance Spot</div>
+                      </div>
+                    </div>
+                    <div class="balance-cell">$18,789.33</div>
+                    <div class="perf-cell">+7.12%</div>
+                    <div class="perf-cell">+14.12%</div>
+                    <div class="perf-cell">+25.12%</div>
+                    <div class="auto-cell">9</div>
+                    <div class="assets-cell">
+                      <div class="asset-strip">
+                        <span class="asset-seg seg-a"></span>
+                        <span class="asset-seg seg-b"></span>
+                        <span class="asset-seg seg-c"></span>
+                        <span class="asset-seg seg-d"></span>
+                        <span class="asset-seg seg-e"></span>
+                        <span class="asset-seg seg-f"></span>
+                        <span class="asset-seg seg-g"></span>
+                        <span class="asset-seg seg-h"></span>
+                        <span class="asset-seg seg-i"></span>
+                        <span class="asset-seg seg-j"></span>
+                        <span class="asset-seg seg-k"></span>
+                        <span class="asset-seg seg-l"></span>
+                      </div>
+                      <div class="asset-meta">USDT 26.08% · ETH 21.64% · WETH 7.13% · +124</div>
+                    </div>
+                    <div class="kebab-cell">
+                      <button class="kebab" type="button" aria-label="Actions">⋮</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-pagination">
+                <button class="page-pill is-active" type="button">1</button>
+                <button class="page-pill" type="button">2</button>
+                <button class="page-pill" type="button">3</button>
+                <button class="page-pill" type="button">4</button>
+                <button class="page-pill" type="button">5</button>
+                <span class="page-ellipsis">...</span>
+                <button class="page-pill" type="button">Next</button>
               </div>
             </div>
           </section>
