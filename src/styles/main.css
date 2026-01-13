@@ -2015,3 +2015,429 @@ main {
     gap: 10px;
   }
 }
+
+.page-accounts .main {
+  overflow-y: auto;
+}
+
+.page-accounts .accounts-shell {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-inner);
+  min-height: 0;
+}
+
+.page-accounts .accounts-header .header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-accounts .accounts-timeframes {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.page-accounts .timeframe-pill {
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle);
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.page-accounts .timeframe-pill--active {
+  background: var(--color-action-primary-soft);
+  border-color: var(--color-action-primary-border);
+  color: var(--color-text);
+}
+
+.page-accounts .accounts-overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.page-accounts .accounts-overview-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.page-accounts .overview-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  background: linear-gradient(140deg, var(--color-surface-panel-strong), var(--color-surface-panel-muted));
+  box-shadow: inset 0 0 12px var(--color-overlay-xs);
+}
+
+.page-accounts .overview-metric .metric-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-tertiary);
+}
+
+.page-accounts .overview-metric .metric-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.page-accounts .overview-metric .metric-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.page-accounts .distribution-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-overlay-xs);
+  overflow: hidden;
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.page-accounts .distribution-bar .segment {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.page-accounts .segment--exchange {
+  background: linear-gradient(90deg, rgba(102, 255, 51, 0.6), rgba(0, 247, 213, 0.35));
+}
+
+.page-accounts .segment--wallet {
+  background: linear-gradient(90deg, rgba(61, 44, 141, 0.5), rgba(0, 247, 213, 0.2));
+}
+
+.page-accounts .distribution-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.page-accounts .legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.page-accounts .legend-dot--exchange {
+  background: rgba(102, 255, 51, 0.8);
+}
+
+.page-accounts .legend-dot--wallet {
+  background: rgba(61, 44, 141, 0.8);
+}
+
+.page-accounts .accounts-overview-chart {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+  background: linear-gradient(160deg, var(--color-surface-panel-muted), var(--color-surface-panel-strong));
+}
+
+.page-accounts .donut-chart {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.page-accounts .donut-chart svg {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.page-accounts .donut-ring {
+  fill: none;
+  stroke: var(--color-overlay-xs);
+  stroke-width: 12;
+}
+
+.page-accounts .donut-segment {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  stroke-dasharray: 289 289;
+}
+
+.page-accounts .donut-segment--exchange {
+  stroke: rgba(102, 255, 51, 0.7);
+  stroke-dashoffset: 0;
+  stroke-dasharray: 190 289;
+}
+
+.page-accounts .donut-segment--wallet {
+  stroke: rgba(61, 44, 141, 0.7);
+  stroke-dashoffset: -200;
+  stroke-dasharray: 90 289;
+}
+
+.page-accounts .donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-accounts .donut-value {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.page-accounts .donut-label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.page-accounts .donut-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-accounts .donut-summary .metric-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-tertiary);
+}
+
+.page-accounts .donut-summary .metric-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.page-accounts .donut-summary .metric-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.page-accounts .accounts-table-section .section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-accounts .accounts-table-wrapper {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-component-table-bg);
+  overflow: hidden;
+}
+
+.page-accounts .accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.page-accounts .accounts-table thead th {
+  background: var(--color-component-table-header-bg);
+  color: var(--color-text);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 12px 10px;
+}
+
+.page-accounts .accounts-table tbody tr {
+  height: 60px;
+  transition: background 0.2s ease;
+}
+
+.page-accounts .accounts-table tbody tr:hover {
+  background: var(--color-overlay-xs);
+}
+
+.page-accounts .accounts-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--color-overlay-sm);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  vertical-align: middle;
+}
+
+.page-accounts .accounts-table td strong {
+  color: var(--color-text);
+}
+
+.page-accounts .account-ref,
+.page-accounts .account-name {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-accounts .account-code {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.page-accounts .account-meta {
+  font-size: 0.66rem;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.page-accounts .account-sub {
+  font-size: 0.66rem;
+  color: var(--color-text-muted);
+}
+
+.page-accounts .account-id {
+  font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.74rem;
+  color: var(--color-text);
+}
+
+.page-accounts .badge--exchange {
+  background: rgba(102, 255, 51, 0.14);
+  color: var(--color-action-primary);
+  border: 1px solid rgba(102, 255, 51, 0.3);
+}
+
+.page-accounts .badge--wallet {
+  background: rgba(61, 44, 141, 0.2);
+  color: rgba(188, 182, 240, 0.9);
+  border: 1px solid rgba(61, 44, 141, 0.4);
+}
+
+.page-accounts .status-pill--limited {
+  color: rgba(255, 255, 255, 0.8);
+  background: var(--color-state-selected);
+  border-color: var(--color-border-strong);
+}
+
+.page-accounts .status-pill--warning {
+  color: var(--color-status-negative-text);
+  background: var(--color-status-negative-soft);
+  border-color: var(--color-status-negative-border);
+}
+
+.page-accounts .status-pill--error {
+  color: var(--color-status-negative-text);
+  background: rgba(255, 95, 95, 0.18);
+  border-color: var(--color-status-negative-border-strong);
+}
+
+.page-accounts .link-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-overlay-xxs);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.page-accounts .asset-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.page-accounts .asset-chip {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--color-overlay-xs);
+  border: 1px solid var(--color-overlay-sm);
+  font-size: 0.66rem;
+  color: var(--color-text-secondary);
+}
+
+.page-accounts .asset-chip--muted {
+  color: var(--color-text-muted);
+}
+
+.page-accounts .table-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.page-accounts .kebab {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-overlay-xxs);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.page-accounts .action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.66rem;
+  color: var(--color-text-muted);
+}
+
+.page-accounts .table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 4px 0;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.page-accounts .pagination-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.page-accounts .page-button {
+  min-width: 32px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.page-accounts .page-button.is-active {
+  border-color: var(--color-action-primary-border);
+  color: var(--color-text);
+}
