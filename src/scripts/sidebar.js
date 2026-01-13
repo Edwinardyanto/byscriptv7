@@ -6,10 +6,10 @@ const sidebarMenu = [
     match: (route) => route === "index.html",
   },
   {
-    id: "exchanges",
-    label: "Exchanges",
-    path: "pages/exchanges.html",
-    match: (route) => route === "pages/exchanges.html",
+    id: "accounts",
+    label: "Accounts",
+    path: "pages/accounts.html",
+    match: (route) => route === "pages/accounts.html",
   },
   {
     id: "autotraders",
